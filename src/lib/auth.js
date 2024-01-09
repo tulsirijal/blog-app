@@ -3,30 +3,25 @@ import GitHub from "next-auth/providers/github";
 import Credentials from "next-auth/providers/credentials";
 import { connectToDB } from "./utils";
 import { User } from "./models";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import { authConfig } from "./auth.config";
 
 
-const login = async (credentials) => {
-  try {
-    connectToDB();
-    const user = await User.findOne({ email: credentials.email });
+// const login = async (credentials) => {
+  
+//     connectToDB();
+//     const user = await User.findOne({ email: credentials.email });
 
-    if (!user) return null;
+//     if (!user) return null;
 
-    const isPasswordCorrect = await bcrypt.compare(
-      credentials.password,
-      user.password
-    );
+//     const isPasswordCorrect = await bcrypt.compare(
+//       credentials.password,
+//       user.password
+//     );
 
-    if (!isPasswordCorrect) return null;
-
-    return user;
-  } catch (err) {
-    console.log(err);
-    return { error: err };
-  }
-};
+//     if (isPasswordCorrect) return user;
+  
+// };
 
 export const {
   handlers: { GET, POST },
@@ -42,7 +37,17 @@ export const {
     }),
     Credentials({
       async authorize(credentials) {
-          await login(credentials);
+        const user = await User.findOne({ email: credentials.email });
+
+        if (!user) return null;
+    
+        const isPasswordCorrect = await bcrypt.compare(
+          credentials.password,
+          user.password
+        );
+    
+        if (isPasswordCorrect) return user;
+        return null
           
       },
     }),

@@ -4,7 +4,7 @@ import { AuthError } from "next-auth";
 import { signIn, signOut } from "./auth";
 import { Post, User } from "./models";
 import { connectToDB } from "./utils";
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcrypt'
 export const handleGithubSignIn = async (e) => {
   await signIn("github");
 };
@@ -15,8 +15,8 @@ export const handleGithubSignOut = async (e) => {
 export const handleSignUp = async (prevState,formData) => {
   const { username, email, password } = Object.fromEntries(formData);
   const saltRounds = 10
-  const salt = bcrypt.genSaltSync(saltRounds);
-  const hashedPassword = bcrypt.hashSync(password, salt)
+  const salt =   await bcrypt.genSalt(saltRounds);
+  const hashedPassword =  await  bcrypt.hash(password, salt)
   try {
     connectToDB();
     const user = await User.findOne({ email: email });
@@ -47,8 +47,11 @@ export const login = async (prevState, formData) => {
     if(err instanceof AuthError){
       if(err.type === 'CredentialsSignin'){
         return {error:"Invalid credentials"}
+      } else {
+        return {error:'Something went wrong'}
       }
     }
+    
     throw err
   }
 };
