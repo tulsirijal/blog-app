@@ -13,11 +13,14 @@ export const handleGithubSignOut = async (e) => {
 };
 
 export const handleSignUp = async (prevState,formData) => {
-  const { username, email, password } = Object.fromEntries(formData);
-  const saltRounds = 10
-  const salt =   await bcrypt.genSalt(saltRounds);
-  const hashedPassword =  await  bcrypt.hash(password, salt)
   try {
+    const { username, email, password } = Object.fromEntries(formData);
+    if(!username && !email && !password){
+      return {error:'All Fields are required'}
+    }
+    const saltRounds = 10
+    const salt =   await bcrypt.genSalt(saltRounds);
+    const hashedPassword =  await  bcrypt.hash(password, salt)
     connectToDB();
     const user = await User.findOne({ email: email });
     if (user) {
@@ -33,7 +36,7 @@ export const handleSignUp = async (prevState,formData) => {
     return {success:true}
   } catch (error) {
     console.log(error);
-    return {error:error};
+    return {error:error.message};
   }
 };
 
