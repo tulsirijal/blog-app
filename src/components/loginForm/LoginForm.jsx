@@ -11,7 +11,7 @@ export default function LoginForm() {
           <input type="password" placeholder="Password" name="password" className="h-[40px] w-full bg-textSoft text-background p-2 outline-none" />
           <button className="bg-btn text-white px-8 py-4 w-full">Login</button>
           <p className='text-textSoft text-md text-center'>{state?.error}</p>
-          <Link href='/register' className='text-sm font-semibold text-white'>Don't have an account ? Register</Link>
+          <Link href='/register' className='text-sm font-semibold text-white'>Don&apos;t have an account ? Register</Link>
     </form>
   )
 }
