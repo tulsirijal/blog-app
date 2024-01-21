@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import {useFormState} from 'react-dom'
 
 import { handleSignUp } from "@/lib/action";
@@ -7,12 +7,14 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 
 
+
+
 export default function RegisterForm() {
     const [state,formAction] = useFormState(handleSignUp,undefined)
     const router = useRouter()
     useEffect(()=>{
-        state?.success && router.push('/')
-    },[state?.success,router])
+        state?.success && router.push('/login')
+    },[state?.success])
   return (
     <form action={formAction} className="w-full space-y-4 flex flex-col ">
           <input type="text" placeholder="Username" name="username" className="h-[40px] w-full bg-bgSoft text-white p-2 outline-none" />
