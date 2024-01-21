@@ -7,7 +7,7 @@ export default function PostCard({post}) {
     <div className="flex flex-col justify-center gap-3 w-full lg:w-[400px]">
         <div className="relative flex flex-row  items-center" >
             <div className="relative w-[90%] h-[300px] ">
-                <Image src={post?.img || '/noavatar.img'} alt="" fill className="object-cover"/>
+                <Image src={post?.img || '/noavatar.img'} alt="post" fill className="object-cover"/>
             </div>
             <p className="text-white rotate-[270deg] text-sm ">Jan 4 2024</p>
         </div>

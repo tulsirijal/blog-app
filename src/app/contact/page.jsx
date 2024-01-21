@@ -11,7 +11,7 @@ export default function Contact() {
     return (
       <div className="w-[90%] max-w-[1367px] mx-auto flex flex-col gap-4 md:flex-row items-center justify-between ">
         <div className=" relative w-[90%] md:w-[90%] h-[500px]">
-          <Image src='/contact.png' alt="" fill className="object-contain" />
+          <Image src='/contact.png' alt="contact" fill className="object-contain" />
         </div>
         <div className="w-full">
           <form action="" className="flex flex-col gap-3">

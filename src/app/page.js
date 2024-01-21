@@ -20,11 +20,11 @@ export default function Home() {
           </button>
         </div>
         <div className=''>
-          <Image src='/brands.png' alt='' width={500} height={500} className='grayscale'/>
+          <Image src='/brands.png' alt='brand' width={500} height={500} className='grayscale'/>
         </div>
       </div>
       <div className='mb-5 md:mb-0  relative flex items-center  w-[90%] h-[500px]'>
-       <Image src='/hero.gif' alt='' fill />
+       <Image src='/hero.gif' alt='hero' fill />
       </div>
     </main>
   ) 

@@ -20,14 +20,14 @@ export default  async function page({params}) {
   return (
     <div className="flex flex-col-reverse md:flex-col lg:flex-row gap-5 w-[90%] max-w-[1367px] mx-auto ">
         <div className="w-[90%] md:w-[600px] h-[calc(100vh-200px)] relative">
-            {post?.img ? <Image src={post?.img} alt="" fill className="" /> : <Image src=
+            {post?.img ? <Image src={post?.img} alt="post" fill className="" /> : <Image src=
             '/noavatar.png' fill className="" alt="" /> }
         </div>
         <div className="text-white flex flex-col gap-4">
             <h1 className="text-2xl md:text-[36px] font-bold">{post?.title}</h1>
             <div className="flex flex-row gap-4">
                 <div className="relative w-[50px] h-[50px] rounded-full">
-                    {user?.img ? <Image src={user?.img} fill className="rounded-full object-cover" alt="" /> : <Image src=
+                    {user?.img ? <Image src={user?.img} fill className="rounded-full object-cover" alt="user" /> : <Image src=
             '/noavatar.png' fill className="" />}
                 </div>
                 <div>

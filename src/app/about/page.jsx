@@ -32,7 +32,7 @@ export default function About() {
           </div>          
         </div>
         <div className="md:flex-1 relative w-[90%] h-[500px]">
-          <Image src='/about.png' alt="" fill className="object-contain" />
+          <Image src='/about.png' alt="about" fill className="object-contain" />
         </div>
       </div>
     )

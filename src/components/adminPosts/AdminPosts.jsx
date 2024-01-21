@@ -13,7 +13,7 @@ export default async function AdminPosts() {
                 posts.map((post,i)=>(
                     <div className="flex justify-between items-center" key={i}>
                         <div className="flex gap-2 items-center">
-                            <Image src={post.img || '/noavatar.png'} width={50} height={50} alt=''  />
+                            <Image src={post.img || '/noavatar.png'} width={50} height={50} alt='post'  />
                             <span className="font-bold text-md ">{post.title}</span>
                         </div>
                         <form action={deletePost}>

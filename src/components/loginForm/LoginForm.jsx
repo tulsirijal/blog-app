@@ -1,8 +1,6 @@
-'use client'
+"use client"
 import { login } from '@/lib/action'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 import {useFormState} from 'react-dom'
 export default function LoginForm() {
     const [state,formAction] = useFormState(login,undefined)

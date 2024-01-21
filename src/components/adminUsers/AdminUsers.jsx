@@ -15,7 +15,7 @@ export default async function AdminUsers() {
               width={50}
               height={50}
               src={user.img || "/noavatar.png"}
-              alt=""
+              alt="user"
             />
             <span className="text-md font-bold">{user.username}</span>
           </div>

@@ -49,7 +49,7 @@ export default function NavLinks({session}) {
         )}
       </div>
       <button onClick={() => setOpen((prev) => !prev)} className="md:hidden ">
-        <Image src="/menu.png" height={30} width={30}  alt=""/>
+        <Image src="/menu.png" height={30} width={30}  alt="menu"/>
       </button>
       {open && (
         <div className="md:hidden absolute w-[250px] top-[50px] bg-bgSoft h-[calc(100vh-100px)]  z-10 right-0 flex flex-col gap-4 justify-center items-center">
