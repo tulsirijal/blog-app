@@ -22,7 +22,7 @@ export const handleSignUp = async (prevState,formData) => {
     const salt =   await bcrypt.genSalt(saltRounds);
     const hashedPassword =  await  bcrypt.hash(password, salt)
     connectToDB();
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email,username:username });
     if (user) {
       return {error:'User already exists.'}
     } 
