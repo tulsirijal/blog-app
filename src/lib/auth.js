@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import GitHub from "next-auth/providers/github";
+// import GitHub from "next-auth/providers/github";
 import Credentials from "next-auth/providers/credentials";
 import { connectToDB } from "./utils";
 import { User } from "./models";
@@ -31,10 +31,6 @@ export const {
 } = NextAuth({
   ...authConfig,
   providers: [
-    GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     Credentials({
       async authorize(credentials) {
         const user = await User.findOne({ email: credentials.email });
