@@ -1,7 +1,6 @@
 import LoginForm from "@/components/loginForm/LoginForm"
 import { handleGithubSignIn, login } from "@/lib/action"
 export default async function Login() {
-
   return (
     <div className='w-[90%] max-w-[550px] min-h-[400px] mx-auto flex flex-col items-center justify-center bg-bgSoft'>
     <h1 className="text-2xl font-bold text-center text-white">Login</h1>
